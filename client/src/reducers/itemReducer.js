@@ -16,15 +16,16 @@ export default function (state = initialState, action) {
 		case GET_ITEMS:
 			return {
 				...state
+			};		
+		case DELETE_ITEMS:
+			return {
+				...state,
+				items: state.items.filter(item => item.id !== action.payload)
 			};
-		// case ADD_ITEMS:
-		// 	return {
-		// 		...state
-		// 	};
-		// case DELETE_ITEMS:
-		// 	return {
-		// 		...state
-		// 	};
+		case ADD_ITEMS:
+			return {
+				...state
+			};
 		default:
 			return state;
 
