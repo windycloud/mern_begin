@@ -1,0 +1,34 @@
+class Person {
+  constructor() {
+    this.name = 'An Vu';
+    this.age = 30;
+    const getName = () => {
+      console.log(`Name: ${this.name}`);
+    }
+    getName();
+
+    const getAge = function() {
+      // this ở function thường trong class sẽ là undefined
+      try {
+        console.log('Age: ' + this.age);
+      } catch (ex) {
+        console.log('This của Age: ' + typeof this);
+      }
+    }
+    getAge();
+
+    // Cách để sử dụng function thường bên trong
+    let getAgeBinding = function() {
+      // this ở function này đã bị ghi đè bởi this của class
+      console.log('Age: ' + this.age);
+    }
+    getAgeBinding = getAgeBinding.bind(this);
+    getAgeBinding();
+  }
+
+  getInfo() {
+    console.log(`Info: ${this.name} (${this.age})`);
+  }
+}
+
+let person = new Person().getInfo();
