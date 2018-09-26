@@ -8,7 +8,8 @@ const items = require('./routes/api/items.js');
 const app = express();
 
 // Bodyparser Middleware
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(express.json());
 
 //DB config
 const db = require('./config/keys.js').mongoURI;
