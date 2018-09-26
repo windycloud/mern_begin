@@ -34,18 +34,18 @@ export const addItem = (item) => dispatch => {
 		 )
 }
 
-export const deleteItem = id  => {
-	return {
-		type: DELETE_ITEMS,
-		payload: id
-	}
-	// axios
-	// 	.delete(`/api/items/${id}`)
-	// 	.then(res => dispatch ({
-	// 		 	type : DELETE_ITEMS,
-	// 		 	payload: id
-	// 		})
-	// 	 )
+export const deleteItem = id => dispatch => {
+	// return {
+	// 	type: DELETE_ITEMS,
+	// 	payload: id
+	// }
+	axios
+		.delete(`/api/items/${id}`)
+		.then(res => dispatch ({
+			 	type : DELETE_ITEMS,
+			 	payload: id
+			})
+		 )
 }
 
 
